@@ -1,0 +1,13 @@
+<main>
+  <section>
+    <header>Angular Applciation</header>
+    <article>
+      <app-child-one [name]="appName"></app-child-one>
+      <app-child-two [name]="appName"></app-child-two>
+    </article>
+    <footer>
+      <button (click)="changeName()"> Click me!</button>
+      <button (click)="doNothing()"> I do nothing!</button>
+    </footer>
+  </section>
+</main>
