@@ -1,25 +1,27 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
+import { Person } from './person.interface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnChanges {
-  public appName = 'Angular';
-
-  private localVar = null;
-
-  changeName() {
-    this.appName = `Angular - ${Math.random()}`;
+export class AppComponent {
+  public person: Person = {
+    firstName: 'John',
+    lastName: 'Doe'
   }
 
-  doNothing() {
-    this.localVar = 'something';
-    console.log('I do nothing');
+  getRandomNum = () => Math.random();
+  
+  changeFirstName() {
+    this.person.firstName = `John - ${this.getRandomNum()}`;
   }
 
-  ngOnChanges(changes) {
-    console.log(`App comp ngOnChanges  :::  ${JSON.stringify(changes.name)}`);
+  createNewObj() {
+    this.person = {
+      ...this.person,
+      firstName: `John - ${this.getRandomNum()}`
+    }
   }
 }
